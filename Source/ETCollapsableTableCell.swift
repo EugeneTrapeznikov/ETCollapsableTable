@@ -10,5 +10,12 @@ import Foundation
 import UIKit
 
 class ETCollapsableTableCell: UITableViewCell {
-	
+
+	func openAnimated(animated: Bool) {
+		// override in subclass
+	}
+
+	func closeAnimated(animated: Bool) {
+		// override in subclass
+	}
 }
