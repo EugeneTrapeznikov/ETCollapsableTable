@@ -10,5 +10,5 @@ Pod::Spec.new do |spec|
   spec.platform = :ios, "8.0"
   spec.requires_arc = true
   spec.source = { git: "https://github.com/EugeneTrapeznikov/ETCollapsableTable.git", tag: "v#{spec.version}", submodules: true }
-  spec.source_files = "ETCollapsableTable/**/*.{h,swift}"
+  spec.source_files = "Source/**/*.{h,swift}"
 end
