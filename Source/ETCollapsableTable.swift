@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-class ETCollapsableTable: UIViewController, UITableViewDelegate {
+public class ETCollapsableTable: UIViewController, UITableViewDelegate {
 	private var items : [ETCollapsableTableItem] = []
 
-	override func viewDidLoad() {
+	override public func viewDidLoad() {
 		super.viewDidLoad()
 
 		items = buildItems()
@@ -62,7 +62,7 @@ class ETCollapsableTable: UIViewController, UITableViewDelegate {
 		return count
 	}
 
-	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
 		let item = items[indexPath.section]
 
