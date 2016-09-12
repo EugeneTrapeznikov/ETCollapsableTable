@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ETCollapsableTableItem {
+public class ETCollapsableTableItem {
 
 	var title: String = ""
 	var isVisible: Bool = false

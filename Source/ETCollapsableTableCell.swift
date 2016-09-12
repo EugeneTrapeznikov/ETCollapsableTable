@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ETCollapsableTableCell: UITableViewCell {
+public class ETCollapsableTableCell: UITableViewCell {
 
 	func openAnimated(animated: Bool) {
 		// override in subclass

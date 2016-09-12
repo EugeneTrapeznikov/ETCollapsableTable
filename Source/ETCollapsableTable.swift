@@ -20,7 +20,7 @@ public class ETCollapsableTable: UIViewController, UITableViewDelegate {
 
 	// MARK: - Public methods
 
-	func buildItems() -> [ETCollapsableTableItem] {
+	public func buildItems() -> [ETCollapsableTableItem] {
 		// override in subclass
 		return []
 	}
