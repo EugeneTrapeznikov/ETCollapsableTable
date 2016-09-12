@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "ETCollapsableTable"
-  spec.version = "0.1.0"
+  spec.version = "0.1.5"
   spec.summary = "Easy to use table view with collapsable sections."
   spec.homepage = "https://github.com/EugeneTrapeznikov/ETCollapsableTable"
   spec.license = { type: 'MIT', file: 'LICENSE' }
