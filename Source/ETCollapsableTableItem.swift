@@ -10,12 +10,16 @@ import Foundation
 
 public class ETCollapsableTableItem {
 
-	var title: String = ""
+	public var title: String = ""
 	var isVisible: Bool = false
 	var isSelected: Bool = false
 	var items: [ETCollapsableTableItem] = []
 
-	init(title: String) {
+	//MARK: - init
+	public init() {
+	}
+
+	public init(title: String) {
 		self.title = title
 	}
 }
