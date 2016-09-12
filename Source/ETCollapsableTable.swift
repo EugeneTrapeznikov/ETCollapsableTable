@@ -136,8 +136,8 @@ public class ETCollapsableTable: UIViewController {
 
 		let count = item.items.count
 
-		for i in 0...count {
-			let indexPath = NSIndexPath(forRow: i+1, inSection: section)
+		for i in 1...count {
+			let indexPath = NSIndexPath(forRow: i, inSection: section)
 			collector.append(indexPath)
 		}
 
