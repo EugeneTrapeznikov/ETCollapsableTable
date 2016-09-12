@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class ETCollapsableTable: UIViewController, UITableViewDelegate {
+public class ETCollapsableTable: UIViewController {
 	private var items : [ETCollapsableTableItem] = []
 
 	override public func viewDidLoad() {
