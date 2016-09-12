@@ -25,12 +25,12 @@ public class ETCollapsableTable: UIViewController, UITableViewDelegate {
 		return []
 	}
 
-	func singleOpenSelectionOnly() -> Bool {
+	public func singleOpenSelectionOnly() -> Bool {
 		// could be overridden, but not necessary
 		return true
 	}
 
-	func itemAtIndexPath(indexPath: NSIndexPath) -> ETCollapsableTableItem {
+	public func itemAtIndexPath(indexPath: NSIndexPath) -> ETCollapsableTableItem {
 
 		var item = items[indexPath.section]
 
@@ -43,16 +43,16 @@ public class ETCollapsableTable: UIViewController, UITableViewDelegate {
 
 	// MARK: - Public table view methods
 
-	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		return items.count
 	}
 
-	func numberOfRowsInSection(section: Int) -> Int {
+	public func numberOfRowsInSection(section: Int) -> Int {
 		let item = items[section]
 
 		var count = 0
 
-		if item.isVisible {
+		if item.isOpen {
 			count = item.items.count + 1
 		}
 		else {
@@ -84,11 +84,11 @@ public class ETCollapsableTable: UIViewController, UITableViewDelegate {
 		for (index, sectionItem) in items.enumerate() {
 			let isChosenMenuSection = sectionItem == item
 
-			let isVisible = sectionItem.isVisible
+			let isOpen = sectionItem.isOpen
 
-			if (isChosenMenuSection && isVisible) {
+			if (isChosenMenuSection && isOpen) {
 
-				sectionItem.isVisible = false
+				sectionItem.isOpen = false
 
 				cell.closeAnimated(true)
 
@@ -98,9 +98,9 @@ public class ETCollapsableTable: UIViewController, UITableViewDelegate {
 				tableView.deleteRowsAtIndexPaths(indexPaths,
 				                                 withRowAnimation: foundOpenUnchosenMenuSection ? .Bottom : .Top)
 			}
-			else if (!isVisible && isChosenMenuSection) {
+			else if (!isOpen && isChosenMenuSection) {
 
-				sectionItem.isVisible = true
+				sectionItem.isOpen = true
 
 				cell.openAnimated(true)
 
@@ -110,11 +110,11 @@ public class ETCollapsableTable: UIViewController, UITableViewDelegate {
 				tableView.insertRowsAtIndexPaths(indexPaths,
 				                                 withRowAnimation: foundOpenUnchosenMenuSection ? .Bottom : .Top)
 			}
-			else if (isVisible && !isChosenMenuSection && singleOpenSelectionOnly()) {
+			else if (isOpen && !isChosenMenuSection && singleOpenSelectionOnly()) {
 
 				foundOpenUnchosenMenuSection = true
 
-				sectionItem.isVisible = false
+				sectionItem.isOpen = false
 
 				let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: index)) as! ETCollapsableTableCell
 

@@ -11,9 +11,8 @@ import Foundation
 public class ETCollapsableTableItem {
 
 	public var title: String = ""
-	var isVisible: Bool = false
-	var isSelected: Bool = false
-	var items: [ETCollapsableTableItem] = []
+	public var isOpen: Bool = false
+	public var items: [ETCollapsableTableItem] = []
 
 	//MARK: - init
 	public init() {
@@ -25,5 +24,5 @@ public class ETCollapsableTableItem {
 }
 
 func ==(left: ETCollapsableTableItem, right: ETCollapsableTableItem) -> Bool {
-	return left.title == right.title && left.isVisible == right.isVisible && left.isSelected == right.isSelected && left.items.count == right.items.count
+	return left.title == right.title && left.isOpen == right.isOpen && left.items.count == right.items.count
 }
