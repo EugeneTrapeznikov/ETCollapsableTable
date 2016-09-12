@@ -43,7 +43,7 @@ public class ETCollapsableTable: UIViewController, UITableViewDelegate {
 
 	// MARK: - Public table view methods
 
-	public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	public func numberOfSections() -> Int {
 		return items.count
 	}
 
