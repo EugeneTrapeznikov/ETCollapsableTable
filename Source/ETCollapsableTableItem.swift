@@ -14,6 +14,10 @@ public class ETCollapsableTableItem {
 	var isVisible: Bool = false
 	var isSelected: Bool = false
 	var items: [ETCollapsableTableItem] = []
+
+	init(title: String) {
+		self.title = title
+	}
 }
 
 func ==(left: ETCollapsableTableItem, right: ETCollapsableTableItem) -> Bool {
