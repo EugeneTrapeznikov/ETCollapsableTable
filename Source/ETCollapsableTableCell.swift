@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-public class ETCollapsableTableCell: UITableViewCell {
+open class ETCollapsableTableCell: UITableViewCell {
 
-	public func openAnimated(animated: Bool) {
+	open func openAnimated(_ animated: Bool) {
 		// override in subclass
 	}
 
-	public func closeAnimated(animated: Bool) {
+	open func closeAnimated(_ animated: Bool) {
 		// override in subclass
 	}
 }

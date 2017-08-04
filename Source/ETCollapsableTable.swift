@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-public class ETCollapsableTable: UIViewController {
-	private var items : [ETCollapsableTableItem] = []
+open class ETCollapsableTable: UIViewController {
+	fileprivate var items : [ETCollapsableTableItem] = []
 
-	override public func viewDidLoad() {
+	override open func viewDidLoad() {
 		super.viewDidLoad()
 
 		items = buildItems()
@@ -20,17 +20,17 @@ public class ETCollapsableTable: UIViewController {
 
 	// MARK: - Public methods
 
-	public func buildItems() -> [ETCollapsableTableItem] {
+	open func buildItems() -> [ETCollapsableTableItem] {
 		// override in subclass
 		return []
 	}
 
-	public func singleOpenSelectionOnly() -> Bool {
+	open func singleOpenSelectionOnly() -> Bool {
 		// could be overridden, but not necessary
 		return true
 	}
 
-	public func itemAtIndexPath(indexPath: NSIndexPath) -> ETCollapsableTableItem {
+	open func itemAtIndexPath(_ indexPath: IndexPath) -> ETCollapsableTableItem {
 
 		var item = items[indexPath.section]
 
@@ -43,11 +43,11 @@ public class ETCollapsableTable: UIViewController {
 
 	// MARK: - Public table view methods
 
-	public func numberOfSections() -> Int {
+	open func numberOfSections() -> Int {
 		return items.count
 	}
 
-	public func numberOfRowsInSection(section: Int) -> Int {
+	open func numberOfRowsInSection(_ section: Int) -> Int {
 		let item = items[section]
 
 		var count = 0
@@ -62,7 +62,7 @@ public class ETCollapsableTable: UIViewController {
 		return count
 	}
 
-	public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	open func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
 
 		let item = items[indexPath.section]
 
@@ -73,15 +73,15 @@ public class ETCollapsableTable: UIViewController {
 
 	// MARK: - Private methods
 
-	private func toogleMenuForItem(item: ETCollapsableTableItem, inTableView tableView: UITableView, atIndexPath indexPath: NSIndexPath) {
+	fileprivate func toogleMenuForItem(_ item: ETCollapsableTableItem, inTableView tableView: UITableView, atIndexPath indexPath: IndexPath) {
 
-		let cell = tableView.cellForRowAtIndexPath(indexPath) as! ETCollapsableTableCell
+		let cell = tableView.cellForRow(at: indexPath) as! ETCollapsableTableCell
 
 		tableView.beginUpdates()
 
 		var foundOpenUnchosenMenuSection = false
 
-		for (index, sectionItem) in items.enumerate() {
+		for (index, sectionItem) in items.enumerated() {
 			let isChosenMenuSection = sectionItem == item
 
 			let isOpen = sectionItem.isOpen
@@ -95,8 +95,8 @@ public class ETCollapsableTable: UIViewController {
 				let indexPaths = indexPathsForSection(indexPath.section,
 				                                      andItem: sectionItem)
 
-				tableView.deleteRowsAtIndexPaths(indexPaths,
-				                                 withRowAnimation: foundOpenUnchosenMenuSection ? .Bottom : .Top)
+				tableView.deleteRows(at: indexPaths,
+				                                 with: foundOpenUnchosenMenuSection ? .bottom : .top)
 			}
 			else if (!isOpen && isChosenMenuSection) {
 
@@ -107,8 +107,8 @@ public class ETCollapsableTable: UIViewController {
 				let indexPaths = indexPathsForSection(indexPath.section,
 				                                      andItem: sectionItem)
 
-				tableView.insertRowsAtIndexPaths(indexPaths,
-				                                 withRowAnimation: foundOpenUnchosenMenuSection ? .Bottom : .Top)
+				tableView.insertRows(at: indexPaths,
+				                                 with: foundOpenUnchosenMenuSection ? .bottom : .top)
 			}
 			else if (isOpen && !isChosenMenuSection && singleOpenSelectionOnly()) {
 
@@ -116,28 +116,28 @@ public class ETCollapsableTable: UIViewController {
 
 				sectionItem.isOpen = false
 
-				let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: index)) as! ETCollapsableTableCell
+				let cell = tableView.cellForRow(at: IndexPath(row: 0, section: index)) as! ETCollapsableTableCell
 
 				cell.closeAnimated(true)
 
 				let indexPaths = indexPathsForSection(index,
 				                                      andItem: sectionItem)
 
-				tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: indexPath.section > index ? .Top : .Bottom)
+				tableView.deleteRows(at: indexPaths, with: indexPath.section > index ? .top : .bottom)
 			}
 		}
 
 		tableView.endUpdates()
 	}
 
-	private func indexPathsForSection(section: Int, andItem item: ETCollapsableTableItem) -> [NSIndexPath] {
+	fileprivate func indexPathsForSection(_ section: Int, andItem item: ETCollapsableTableItem) -> [IndexPath] {
 
-		var collector: [NSIndexPath] = []
+		var collector: [IndexPath] = []
 
 		let count = item.items.count
 
 		for i in 1...count {
-			let indexPath = NSIndexPath(forRow: i, inSection: section)
+			let indexPath = IndexPath(row: i, section: section)
 			collector.append(indexPath)
 		}
 

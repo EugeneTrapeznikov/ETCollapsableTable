@@ -2,8 +2,8 @@
 //  ETCollapsableTable.h
 //  ETCollapsableTable
 //
-//  Created by Eugene Trapeznikov on 9/1/16.
-//  Copyright © 2016 Evgenii Trapeznikov. All rights reserved.
+//  Created by Eugene Trapeznikov on 8/4/17.
+//  Copyright © 2017 Eugene Trapeznikov. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

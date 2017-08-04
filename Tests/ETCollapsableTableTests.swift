@@ -2,8 +2,8 @@
 //  ETCollapsableTableTests.swift
 //  ETCollapsableTableTests
 //
-//  Created by Eugene Trapeznikov on 9/1/16.
-//  Copyright © 2016 Evgenii Trapeznikov. All rights reserved.
+//  Created by Eugene Trapeznikov on 8/4/17.
+//  Copyright © 2017 Eugene Trapeznikov. All rights reserved.
 //
 
 import XCTest
@@ -28,7 +28,7 @@ class ETCollapsableTableTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

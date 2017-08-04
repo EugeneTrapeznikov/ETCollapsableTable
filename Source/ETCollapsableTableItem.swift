@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class ETCollapsableTableItem {
+open class ETCollapsableTableItem {
 
-	public var title: String = ""
-	public var isOpen: Bool = false
-	public var items: [ETCollapsableTableItem] = []
+	open var title: String = ""
+	open var isOpen: Bool = false
+	open var items: [ETCollapsableTableItem] = []
 
 	//MARK: - init
 	public init() {
