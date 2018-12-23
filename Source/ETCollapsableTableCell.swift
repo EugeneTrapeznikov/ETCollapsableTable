@@ -11,11 +11,11 @@ import UIKit
 
 open class ETCollapsableTableCell: UITableViewCell {
 
-	open func openAnimated(_ animated: Bool) {
+	open func open() {
 		// override in subclass
 	}
 
-	open func closeAnimated(_ animated: Bool) {
+	open func close() {
 		// override in subclass
 	}
 }
